@@ -1,0 +1,36 @@
+<p>get-products works!</p>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2>Products List</h2>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped table-inverse table-responsive">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>Model Number</th>
+                    <th>Product Name</th>
+                    <th>Product Category Name</th>
+                    <th>Date Of Purchase</th>
+                    <th>Warranty Years</th>
+                    <th>Warranty Date</th>
+                    <th>client Id</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor= "let complaint of complaints">
+                        <td >{{product.modelNumber}}</td>
+                        <td>{{product.productName}}</td>
+                        <td>{{product.productCategoryName}}</td>
+                        <td>{{product.dateOfPurchase}}</td>
+                        <td>{{product.warrantyYears}}</td>
+                        <td>{{product.warrantyDate}}</td>
+                        <td>{{product.clientId}}</td>
+                        
+                        <td>
+                            <button (click)="productDetails(product.productCategoryName)" class="btn btn-info" >Details>></button>
+                        </td>
+                    </tr>
+                </tbody>
+        </table>
+    </div>
+</div>

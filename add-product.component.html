@@ -1,0 +1,88 @@
+<p>add-product works!</p>
+<h3>Add Product</h3>
+<div style="width:400px" [hidden]= "submitted">
+    <!-- <form (ngSubmit)="onSubmit()"> -->
+        <form #createProductForm="ngForm" novalidate>
+        <div class="form-group">
+            <label for="modelNumber">Product Model Number</label>
+            <input type="text" name="modelNumber" class="form-control" 
+                    placeholder="Enter the product model number" required  
+                    #productModelNumber="ngModel"
+                    [(ngModel)]= "product.modelNumber"
+                    [ngClass]= "{'is-invalid':modelNumber?.errors && (modelNumber?.touched || modelNumber?.dirty),
+                                    'is-valid':modelNumber?.valid}">
+            <div class="invalid-feedback">
+                <strong *ngIf= "modelNumber?.errors?.required">Product Model Number is required</strong>
+                <!-- <strong *ngIf= "ModelNumber?.errors && (ModelNumber?.touched || ModelNumber?.dirty) ">Title is not valid</strong> -->
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="productName">Product Name</label>
+            <input type="text" name="productName" class="form-control" 
+                  placeholder="Enter the name of the product" required
+                  [(ngModel)]= "product.productName" #productName="ngModel"
+                  [ngClass]= "{'is-invalid':productName?.errors && (productName?.touched || productName?.dirty),
+                  'is-valid':productName?.valid}">
+                  <div class="invalid-feedback">
+                    <strong *ngIf= "productName?.errors?.required">Product name is required</strong>
+                </div>
+        </div>
+        <div class="form-group">
+            <label for="productCategoryName">Product Category Name</label>
+            <input type="text" name="productCategoryName" class="form-control" 
+                  placeholder="Enter the product catgeory name" required 
+                  [(ngModel)]= "product.productCategoryName" #productCategoryName="ngModel"
+                  [ngClass]= "{'is-invalid':productCategoryName?.errors && (productCategoryName?.touched || productCategoryName?.dirty),
+                  'is-valid':productCategoryName?.valid}">
+                  <div class="invalid-feedback">
+                    <strong *ngIf= "productCategoryName?.errors?.required">product category name is required</strong>
+                </div>
+        </div>
+        <div class="form-group">
+            <label for="dateOfPurchase">Product date of purchase</label>
+            <input type="date" name="dateOfPurchase" class="form-control" 
+                  placeholder="Enter the product date of purchase" required 
+                  [(ngModel)]= "product.dateOfPurchase" #dateOfPurchase="ngModel"
+                  [ngClass]= "{'is-invalid':dateOfPurchase?.errors && (dateOfPurchase?.touched || complaintRegDate?.dirty),
+                  'is-valid':dateOfPurchase?.valid}">
+                  <div class="invalid-feedback">
+                    <strong *ngIf= "dateOfPurchase?.errors?.required">dateOfPurchase is required</strong>
+                </div>
+        </div>
+        <div class="form-group">
+            <label for="warrantyYears">Warranty Years</label>
+            <input type="number" name="warrantyYears" class="form-control" 
+                  placeholder="Enter the warranty years" 
+                  required [(ngModel)]= "product.warrantyYears" #warrantyYears="ngModel"
+                  [ngClass]= "{'is-invalid':warrantyYears?.errors && (warrantyYears?.touched || warrantyYears?.dirty),
+                  'is-valid':warrantyYears?.valid}">
+                  <div class="invalid-feedback">
+                    <strong *ngIf= "warrantyYears?.errors?.required">warranty years is required</strong>
+                </div>
+        </div>
+        <div class="form-group">
+            <label for="warrantyDate">Warranty Date</label>
+            <input type="date" name="warrantyDate" class="form-control" 
+                  placeholder="Enter the warranty date" 
+                  required [(ngModel)]= "product.warrantyDate" #warrantyDate="ngModel"
+                  [ngClass]= "{'is-invalid':warrantyDate?.errors && (warrantyDate?.touched || warrantyDate?.dirty),
+                  'is-valid':warrantyDate?.valid}">
+                  <div class="invalid-feedback">
+                    <strong *ngIf= "warrantyDate?.errors?.required">warranty date is required</strong>
+                </div>
+        </div>
+        <div class="form-group">
+            <label for="clientId">Client Id</label>
+            <input type="text" name="clientId" class="form-control" 
+                  placeholder="Enter the Client Id" required 
+                  [(ngModel)]= "complaint.clientId" #clientId="ngModel"
+                  [ngClass]= "{'is-invalid':clientId?.errors && (clientId?.touched || clientId?.dirty),
+                  'is-valid':clientId?.valid}">
+                  <div class="invalid-feedback">
+                    <strong *ngIf= "clientId?.errors?.required">Client Id is required</strong>
+                </div>
+        </div>
+        <button type="submit" class="btn btn-success" (click)= "onSubmit()" [disabled]= "createProductForm.invalid">Add Product</button>
+        <button type="submit" class="btn btn-default" (click)= "createProductForm.reset()">Reset</button>
+    </form>
+</div>

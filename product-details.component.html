@@ -1,0 +1,26 @@
+<p>product-details works!</p>
+<h2>Complaint Details</h2>
+<hr>
+<div *ngIf = "product">
+    <div>
+        <label> <b> Product ModelNumber: </b></label> {{product.modelNumber}}
+    </div>
+    <div>
+        <label> <b> Product Name : </b></label> {{product.productName}}
+    </div>
+    <div>
+        <label> <b> Product Category Name : </b></label> {{product.productCategoryName}}
+    </div>
+    <div>
+        <label> <b> Date Of Purchase : </b></label> {{product.dateOfPurchase}}
+    </div>
+    <div>
+        <label> <b> Warranty Years: </b></label> {{product.warrantyYears}}
+    </div>
+    <div>
+        <label> <b> Warranty Date: </b></label> {{product.warrantyDate}}
+    </div>
+    <div>
+        <label> <b> Client Id</b></label> {{product.clientId}}
+    </div>
+</div>
